@@ -1,4 +1,3 @@
-// src/screens/HomeScreen.js
 import React, { useState } from 'react';
 import {
   View,
@@ -13,25 +12,25 @@ import { getSentimentAnalysis } from '../api';
 
 const STORAGE_KEY = '@diary_entries';
 
-// Duyguya göre renk + emoji (pastel tema)
+// Duyguya göre renk + emoji 
 const getColorsAndEmoji = (labelEn) => {
   switch (labelEn) {
     case 'POSITIVE':
       return {
-        color: '#2DBF82',    // pastel mint yeşili
-        bg: '#E8FFF4',       // çok açık mint arka plan
+        color: '#2DBF82',   
+        bg: '#E8FFF4',      
         emoji: '😊',
       };
     case 'NEGATIVE':
       return {
-        color: '#FF6B6B',    // pastel coral kırmızı
-        bg: '#FFECEC',       // çok açık pembe/kırmızı arka plan
+        color: '#FF6B6B',   
+        bg: '#FFECEC',       
         emoji: '😔',
       };
     default:
       return {
-        color: '#8E8E93',    // soft gri
-        bg: '#F4F4F7',       // soft gri/lilamsı arka plan
+        color: '#8E8E93',    
+        bg: '#F4F4F7',      
         emoji: '😐',
       };
   }
@@ -40,7 +39,6 @@ const getColorsAndEmoji = (labelEn) => {
 const HomeScreen = ({ navigation }) => {
   const [text, setText] = useState('');
   const [loading, setLoading] = useState(false);
-  // {labelTr, labelEn, score, summary, advice, color, bg, emoji}
   const [result, setResult] = useState(null);
 
   const handleAnalyze = async () => {
@@ -55,8 +53,6 @@ const HomeScreen = ({ navigation }) => {
         throw new Error('API boş veya geçersiz sonuç döndürdü');
       }
 
-      // Bazı modeller: [ {label, score}, ... ]
-      // Bazıları:      [ [ {label, score}, ... ] ]
       const options = Array.isArray(apiResult[0]) ? apiResult[0] : apiResult;
 
       if (!Array.isArray(options) || options.length === 0) {
@@ -71,8 +67,6 @@ const HomeScreen = ({ navigation }) => {
       console.log('Seçilen en iyi sonuç:', best);
 
       // Label normalizasyonu:
-      // Türkçe model (savasy) -> LABEL_0 / LABEL_1
-      // İngilizce model       -> POSITIVE / NEGATIVE
       let labelEn;
       const rawLabel = (best.label || '').toUpperCase();
 
@@ -221,14 +215,14 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     paddingTop: 60,
-    backgroundColor: '#FAFAFF', // hafif lila-beyaz pastel
+    backgroundColor: '#FAFAFF', 
   },
   title: {
     fontSize: 26,
     fontWeight: '800',
     marginBottom: 8,
     textAlign: 'center',
-    color: '#4C1D95', // koyu pastel mor
+    color: '#4C1D95', 
   },
   subtitle: {
     fontSize: 14,
@@ -253,7 +247,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   button: {
-    backgroundColor: '#7C3AED', // pastel mor
+    backgroundColor: '#7C3AED', 
     paddingVertical: 14,
     borderRadius: 999,
     alignItems: 'center',

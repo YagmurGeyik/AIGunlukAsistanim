@@ -19,16 +19,20 @@ Uygulama **React Native CLI** kullanılarak geliştirilmiştir.
 Geçmiş kayıtlar cihaz içinde **AsyncStorage** ile saklanır.
 
 ---
+## Kullanılan Yapay Zekâ Modeli
 
-## Kullanılan AI Modeli ve API Açıklaması
+Bu projede duygu analizi için HuggingFace üzerinde yer alan Türkçe sentiment modeli
+savasy/bert-base-turkish-sentiment-cased kullanılmıştır:
 
-Uygulamada duygu analizi için **HuggingFace Inference API** kullanılmıştır.
+Model URL:
+https://router.huggingface.co/hf-inference/models/savasy/bert-base-turkish-sentiment-cased
 
-### Kullanılan Model
+Bu model, kullanıcının Türkçe yazdığı metni pozitif / negatif / nötr olarak sınıflandırır.
+API isteği, HuggingFace Inference API üzerinden ücretsiz olarak yapılmaktadır.
 
-```
-distilbert/distilbert-base-uncased-finetuned-sst-2-english
-```
+Ek olarak, çıkan duygu sonucuna göre özet ve kişisel öneriler, ChatGPT destekli doğal dil üretimiyle cihaz üzerinde oluşturulmaktadır. Herhangi bir ücretli servis veya ek bulut sistemi kullanılmamıştır.
+
+---
 
 Model çıkışı örneği:
 
@@ -90,21 +94,6 @@ AsyncStorage içinde saklandığından internet yokken geçmiş ekranı sorunsuz
 * HuggingFace Inference API
 * AsyncStorage
 * Android Studio
-
----
-
-## Kullanılan Yapay Zekâ Modeli
-
-Bu projede duygu analizi için HuggingFace üzerinde yer alan Türkçe sentiment modeli
-savasy/bert-base-turkish-sentiment-cased kullanılmıştır:
-
-Model URL:
-https://router.huggingface.co/hf-inference/models/savasy/bert-base-turkish-sentiment-cased
-
-Bu model, kullanıcının Türkçe yazdığı metni pozitif / negatif / nötr olarak sınıflandırır.
-API isteği, HuggingFace Inference API üzerinden ücretsiz olarak yapılmaktadır.
-
-Ek olarak, çıkan duygu sonucuna göre özet ve kişisel öneriler, ChatGPT destekli doğal dil üretimiyle cihaz üzerinde oluşturulmaktadır. Herhangi bir ücretli servis veya ek bulut sistemi kullanılmamıştır.
 
 ---
 

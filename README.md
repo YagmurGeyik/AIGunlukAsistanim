@@ -19,7 +19,7 @@ Uygulama **React Native CLI** kullanılarak geliştirilmiştir.
 Geçmiş kayıtlar cihaz içinde **AsyncStorage** ile saklanır.
 
 ---
-## Kullanılan Yapay Zekâ Modeli
+## Kullanılan Yapay Zeka Modeli
 
 Bu projede duygu analizi için HuggingFace üzerinde yer alan Türkçe sentiment modeli
 savasy/bert-base-turkish-sentiment-cased kullanılmıştır:

@@ -162,24 +162,24 @@ export const HUGGINGFACE_API_KEY = "your_api_key_here";
 
 ### Ana Sayfa 
 
-<img src="./assets/images/home_empty.png" width="300"/>
+<img src="assets/images/home_empty.png" width="300"/>
 
 ### Metin Girişi
 
-<img src="./assets/images/home_filled.png" width="300"/>  
-<img src="./assets/images/home_filled2.png" width="300"/>
+<img src="assets/images/home_filled.png" width="300"/>  
+<img src="assets/images/home_filled2.png" width="300"/>
 
 ### Pozitif Sonuç
 
-<img src="./assets/images/result_positive.png" width="300"/>
+<img src="assets/images/result_positive.png" width="300"/>
 
 ### Negatif Sonuç
 
-<img src="./assets/images/result_negative.png" width="300"/>
+<img src="assets/images/result_negative.png" width="300"/>
 
 ### Geçmiş Sayfası
 
-<img src="./assets/images/history_list.png" width="300"/>
+<img src="assets/images/history_list.png" width="300"/>
 
 ---
 

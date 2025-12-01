@@ -56,6 +56,9 @@ Kod düzenleme, hata çözümleme ve açıklama oluşturma süreçlerinde **Chat
 ---
 
 ## AI Araç Kullanım Dokümantasyonu
+Bu projenin geliştirilme sürecinde bazı kod parçalarının iyileştirilmesi,
+hata ayıklama ve tasarım önerileri için ChatGPT’den destek alınmıştır.
+Tüm uygulama mantığı geliştirici tarafından manuel olarak yazılmıştır.
 
 | Araç            | Kullanım Amacı                              |
 | --------------- | ------------------------------------------- |
@@ -75,12 +78,33 @@ Kod düzenleme, hata çözümleme ve açıklama oluşturma süreçlerinde **Chat
 
 ---
 
+## Offline Çalışma
+Uygulama analiz işlemi için internet gerektirir; ancak tüm geçmiş kayıtlar
+AsyncStorage içinde saklandığından internet yokken geçmiş ekranı sorunsuz görüntülenebilir.
+
+---
+
 ## Kullanılan Teknolojiler
 
 * React Native CLI
 * HuggingFace Inference API
 * AsyncStorage
 * Android Studio
+
+---
+
+## Kullanılan Yapay Zekâ Modeli
+
+Bu projede duygu analizi için HuggingFace üzerinde yer alan Türkçe sentiment modeli
+savasy/bert-base-turkish-sentiment-cased kullanılmıştır:
+
+Model URL:
+https://router.huggingface.co/hf-inference/models/savasy/bert-base-turkish-sentiment-cased
+
+Bu model, kullanıcının Türkçe yazdığı metni pozitif / negatif / nötr olarak sınıflandırır.
+API isteği, HuggingFace Inference API üzerinden ücretsiz olarak yapılmaktadır.
+
+Ek olarak, çıkan duygu sonucuna göre özet ve kişisel öneriler, ChatGPT destekli doğal dil üretimiyle cihaz üzerinde oluşturulmaktadır. Herhangi bir ücretli servis veya ek bulut sistemi kullanılmamıştır.
 
 ---
 
@@ -172,8 +196,8 @@ export const HUGGINGFACE_API_KEY = "your_api_key_here";
 
 ## Geliştirici
 
-**Yağmur Geyik**
-Bilgisayar Mühendisliği öğrencisi
+**Yağmur Geyik**,
+Bilgisayar Mühendisliği öğrencisi,
 NLP ve Yapay Zekâ alanına ilgi duyuyor.
 Mobil uygulama geliştirme üzerine çalışıyor.
 

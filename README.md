@@ -1,97 +1,197 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# **AI Günlük Asistanım**
 
-# Getting Started
+Duygularını analiz eden, özet çıkaran ve sana kişisel öneriler sunan yapay zekâ destekli günlük uygulaması.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+---
 
-## Step 1: Start Metro
+## Uygulama Hakkında
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+**AI Günlük Asistanım**, kullanıcıların hislerini analiz eden ve:
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+* Duygu Analizi
+* Özetleme
+* Kişisel öneri üretimi
+* Geçmiş kayıtları görüntüleme
 
-```sh
-# Using npm
-npm start
+özellikleri sunan bir mobil uygulamadır.
 
-# OR using Yarn
-yarn start
+Uygulama **React Native CLI** kullanılarak geliştirilmiştir.
+Geçmiş kayıtlar cihaz içinde **AsyncStorage** ile saklanır.
+
+---
+
+## Kullanılan AI Modeli ve API Açıklaması
+
+Uygulamada duygu analizi için **HuggingFace Inference API** kullanılmıştır.
+
+### Kullanılan Model
+
+```
+distilbert/distilbert-base-uncased-finetuned-sst-2-english
 ```
 
-## Step 2: Build and run your app
+Model çıkışı örneği:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```json
+[
+  {
+    "label": "POSITIVE",
+    "score": 0.98
+  }
+]
 ```
 
-### iOS
+Modelin sonucuna göre:
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+* Pozitif
+* Negatif
+* Nötr
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+etiketleri belirlenir ve özet + öneri üretilir.
 
-```sh
-bundle install
+### ChatGPT Kullanımı (Geliştirme Desteği)
+
+Kod düzenleme, hata çözümleme ve açıklama oluşturma süreçlerinde **ChatGPT** destek aracı olarak kullanılmıştır.
+
+---
+
+## AI Araç Kullanım Dokümantasyonu
+
+| Araç            | Kullanım Amacı                              |
+| --------------- | ------------------------------------------- |
+| ChatGPT         | Kod geliştirme, hata çözümü, stil düzenleme |
+| HuggingFace API | Duygu analizi modeli                        |
+
+---
+
+## Özellikler
+
+* Türkçe duygu analizi
+* Özet çıkarma
+* Kullanıcıya özel öneri üretimi
+* Geçmiş kayıtları listeleme
+* Offline görüntüleme desteği
+* Modern pastel arayüz tasarımı
+
+---
+
+## Kullanılan Teknolojiler
+
+* React Native CLI
+* HuggingFace Inference API
+* AsyncStorage
+* Android Studio
+
+---
+
+## Proje Yapısı
+
+```
+AI-Gunluk-Asistanim/
+│
+├── android/
+├── ios/
+├── node_modules/
+│
+├── assets/
+│   └── images/
+│       ├── history_list.png
+│       ├── home_empty.png
+│       ├── home_filled.png
+│       ├── home_filled2.png
+│       ├── result_negative.png
+│       ├── result_positive.png
+│
+├── src/
+│   ├── screens/
+│   │   ├── HomeScreen.js
+│   │   ├── HistoryScreen.js
+│   ├── api.js
+│   ├── config.local.js
+│
+├── App.js
+├── index.js
+├── package.json
+├── README.md
 ```
 
-Then, and every time you update your native dependencies, run:
+---
+
+## Kurulum
+
+### 1. Bağımlılıkları yükleyin
 
 ```sh
-bundle exec pod install
+npm install
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+### 2. Android ortamını başlatın
 
 ```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+npx react-native start
+npx react-native run-android
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### 3. HuggingFace API anahtarı ekleyin
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+Token oluşturun:
+[https://huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)
 
-## Step 3: Modify your app
+`config.local.js` içine ekleyin:
 
-Now that you have successfully run the app, let's make changes!
+```js
+export const HUGGINGFACE_API_KEY = "your_api_key_here";
+```
 
-Open `App.js` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+---
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## Uygulama Ekran Görüntüleri
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Ana Sayfa 
 
-## Congratulations! :tada:
+<img src="./assets/images/home_empty.png" width="300"/>
 
-You've successfully run and modified your React Native App. :partying_face:
+### Metin Girişi
 
-### Now what?
+<img src="./assets/images/home_filled.png" width="300"/>  
+<img src="./assets/images/home_filled2.png" width="300"/>
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### Pozitif Sonuç
 
-# Troubleshooting
+<img src="./assets/images/result_positive.png" width="300"/>
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### Negatif Sonuç
 
-# Learn More
+<img src="./assets/images/result_negative.png" width="300"/>
 
-To learn more about React Native, take a look at the following resources:
+### Geçmiş Sayfası
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+<img src="./assets/images/history_list.png" width="300"/>
+
+---
+
+## Geliştirici
+
+**Yağmur Geyik**
+Bilgisayar Mühendisliği öğrencisi
+NLP ve Yapay Zekâ alanına ilgi duyuyor.
+Mobil uygulama geliştirme üzerine çalışıyor.
+
+---
+
+## Staj Projesi
+
+Bu uygulama, *React Native AI Staj Programı* kapsamında geliştirilmiştir.
+Tamamlanan gereksinimler:
+
+* Türkçe duygu analizi
+* Özet + öneri sistemi
+* Geçmiş listeleme
+* Modern UI
+* Offline görüntüleme
+
+---
+
+## Lisans
+
+Bu proje eğitsel amaçlarla geliştirilmiştir.

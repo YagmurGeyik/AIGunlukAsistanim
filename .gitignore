@@ -76,3 +76,5 @@ yarn-error.log
 
 # .gitignore dosyasına ekleyin
 .env
+# HuggingFace token dosyam (local)
+src/config.local.js

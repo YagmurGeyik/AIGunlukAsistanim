@@ -5,16 +5,16 @@ buildscript {
         compileSdkVersion = 36
         targetSdkVersion = 36
         ndkVersion = "27.1.12297006"
-        kotlinVersion = "2.1.20"
+        kotlinVersion = "1.5.30" // Kotlin versiyonunu güncelledim
     }
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle")
-        classpath("com.facebook.react:react-native-gradle-plugin")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath("com.android.tools.build:gradle:7.2.0") // Gradle plugin versiyonunu güncelledim
+        classpath("com.facebook.react:react-native-gradle-plugin:0.65.1") // React Native Gradle Plugin versiyonunu güncelledim
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30") // Kotlin Gradle plugin versiyonunu güncelledim
     }
 }
 

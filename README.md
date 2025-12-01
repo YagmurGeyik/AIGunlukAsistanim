@@ -1,6 +1,6 @@
 # **AI Günlük Asistanım**
 
-Duygularını analiz eden, özet çıkaran ve sana kişisel öneriler sunan yapay zekâ destekli günlük uygulaması.
+Duygularını analiz eden, özet çıkaran ve sana kişisel öneriler sunan yapay zeka destekli günlük uygulaması.
 
 ---
 

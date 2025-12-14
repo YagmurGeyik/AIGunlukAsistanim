@@ -1,4 +1,3 @@
-// src/screens/HistoryScreen.js
 import React, { useEffect, useState } from 'react';
 import {
   View,
@@ -104,7 +103,7 @@ const HistoryScreen = ({ navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>Geçmiş & Özet</Text>
 
-      {/* Basit haftalık/genel özet */}
+      {/* Basit haftalık(genel özet) */}
       {stats && stats.total > 0 && (
         <View style={styles.statsBox}>
           <Text style={styles.statsTitle}>Genel Duygu Özeti</Text>
